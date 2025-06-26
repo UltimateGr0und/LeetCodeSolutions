@@ -5,6 +5,48 @@
 
 using namespace std;
 
+bool isEqual(string::iterator first,
+    string::iterator firstEnd,
+    string::iterator second,
+    string::iterator secondEnd) {
+
+    while (first!=firstEnd || second!= secondEnd)
+    {
+        if (*first!=*second&&*second!='?')
+        {
+            return false;
+        }
+        first++;
+        second++;
+    }
+    if (first != firstEnd || second != secondEnd)
+    {
+        return false;
+    }
+    return true;
+
+}
+
+list<string::iterator> findSubStrings(string data, string subString) {
+    if (subString.length() > data.length())
+        throw exception("bad args");
+    
+    list<string::iterator> res = {};
+    size_t subLength = subString.length();
+    auto dataIter = data.begin();
+    auto dataEnd = data.end()-subLength;
+    while (dataIter!=dataEnd)
+    {
+        if (isEqual(dataIter,dataIter+subLength,subString.begin(), subString.end()))
+        {
+            res.push_back(dataIter);
+        }
+        dataIter++;
+    }
+    return res;
+        
+}
+
 bool isMatch(string s, string p) {
     /*if (p == "*")
         return true;*/
