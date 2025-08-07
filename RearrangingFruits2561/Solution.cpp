@@ -7,16 +7,9 @@ void Solution::swap(vector<int>::iterator a, vector<int>::reverse_iterator b) {
 }
 
 long long Solution::minCost(vector<int>& basket1, vector<int>& basket2) {
-	long long res = 0;
 
 	std::sort(basket1.begin(), basket1.end());
 	std::sort(basket2.begin(), basket2.end());
-
-	/*vector<int> symmetric_diff;
-	std::set_symmetric_difference(
-		basket1.begin(), basket1.end(),
-		basket2.begin(), basket2.end(),
-		std::back_inserter(symmetric_diff));*/
 
 	vector<int> d1;
 	std::set_difference(
@@ -36,21 +29,44 @@ long long Solution::minCost(vector<int>& basket1, vector<int>& basket2) {
 	{
 		return -1;
 	}
-
-	auto i1 = d1.begin();
-	auto i2 = d2.rbegin();
-
-	while (i1!=d1.end()||i2!=d2.rend())
+	int min_value = INT16_MAX;
 	{
-		if (*i1==*(i1+1)&&*i2==*(i2+1))
+		auto i1 = basket1.begin();
+		auto i2 = basket2.begin();
+
+		while (i1 != basket1.end() || i2 != basket2.end())
 		{
-			res += std::min(*i1, *i2);
-			swap(i1, i2);
-			i1 += 2;
-			i2 += 2;
+			if (*i1==*i2)
+			{
+				min_value = *i1*2;
+				break;
+			}
+			else if (*i1 < *i2) {
+				i1++;
+			}
+			else {
+				i2++;
+			}
 		}
-		else {
-			return -1;
+	}
+
+	long long res=0;
+	{
+		auto i1 = d1.begin();
+		auto i2 = d2.rbegin();
+
+		while (i1 != d1.end() || i2 != d2.rend())
+		{
+			if (*i1 == *(i1 + 1) && *i2 == *(i2 + 1))
+			{
+				res+=std::min(std::min(*i1, *i2),min_value);
+				swap(i1, i2);
+				i1 += 2;
+				i2 += 2;
+			}
+			else {
+				return -1;
+			}
 		}
 	}
 
