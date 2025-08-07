@@ -126,11 +126,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\WildcardMatching44\Solution.cpp" />
     <ClCompile Include="RearrangingFruits2561.cpp" />
+    <ClCompile Include="Solution.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\WildcardMatching44\Solution.h" />
+    <ClInclude Include="Solution.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

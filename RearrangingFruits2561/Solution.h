@@ -7,7 +7,7 @@
 using std::vector;
 
 class Solution {
-    std::function<void(size_t a, size_t b)> swap;
+    void swap(vector<int>::iterator a, vector<int>::reverse_iterator b);
 public:
     long long minCost(vector<int>& basket1, vector<int>& basket2);
 };

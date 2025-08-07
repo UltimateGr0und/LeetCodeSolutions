@@ -18,12 +18,12 @@
     <ClCompile Include="RearrangingFruits2561.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\WildcardMatching44\Solution.cpp">
+    <ClCompile Include="Solution.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\WildcardMatching44\Solution.h">
+    <ClInclude Include="Solution.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
